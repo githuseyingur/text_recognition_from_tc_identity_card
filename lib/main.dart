@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import 'views/home_page.dart';
@@ -19,8 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryTextTheme: TextTheme(
-          headline6: TextStyle(color: Colors.white),
+        primaryTextTheme: const TextTheme(
+          titleLarge: TextStyle(color: Colors.white),
         ),
       ),
       home: const HomePage(),

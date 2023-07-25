@@ -1,8 +1,7 @@
 import 'dart:io';
-import 'package:detect_fext_from_image/controllers/home_page_controller.dart';
+import 'package:detect_fext_from_image/controllers/extract_data_controller.dart';
 import 'package:detect_fext_from_image/views/id_detail_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -19,11 +18,13 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  HomePageController homePageController = Get.put(HomePageController());
+  ExtractDataController extractDataController =
+      Get.put(ExtractDataController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: const Center(
           child: Text(
             "Extract Text From ID",
@@ -39,126 +40,141 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 20),
-                (homePageController.imagePaths.value.length == 0)
+                (extractDataController.imagePaths.isEmpty)
                     ? Lottie.asset('assets/animations/id_card_scan.json')
                     : Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Visibility(
                           visible:
-                              homePageController.imagePath.value.isNotEmpty,
+                              extractDataController.imagePath.value.isNotEmpty,
                           child: SizedBox(
-                            height: 200,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: 1,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Stack(
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.file(
-                                        File(
-                                            homePageController.imagePaths.last),
-                                      ),
+                              height: 200,
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Image.file(
+                                      File(extractDataController
+                                          .imagePaths.last),
                                     ),
-                                    Positioned(
-                                      top: -10,
-                                      right: -10,
-                                      child: IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              homePageController
-                                                  .idBirthdate.value = '';
-                                              homePageController
-                                                  .idSerialNumber.value = '';
-                                              homePageController
-                                                  .idValidUntil.value = '';
-                                              homePageController
-                                                  .imagePath.value = '';
-                                              homePageController.imagePaths
-                                                  .clear();
-                                              homePageController.barcodeValue =
-                                                  '';
-                                            });
-                                            // deliveryDocumentController.imagePaths.removeAt(index);
-                                            // deliveryDocumentController.capturedImageCount.value--;
-                                          },
-                                          icon: const CircleAvatar(
-                                            backgroundColor: Colors.red,
-                                            radius: 30,
-                                            child: Icon(
-                                              Icons.delete,
-                                              color: Colors.white,
-                                            ),
-                                          )),
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
-                          ),
+                                  ),
+                                  Positioned(
+                                    top: -10,
+                                    right: -10,
+                                    child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            extractDataController
+                                                .idBirthdate.value = '';
+                                            extractDataController
+                                                .idSerialNumber.value = '';
+                                            extractDataController
+                                                .idValidUntil.value = '';
+                                            extractDataController
+                                                .imagePath.value = '';
+                                            extractDataController.imagePaths
+                                                .clear();
+                                            extractDataController.barcodeValue =
+                                                '';
+                                          });
+                                          // deliveryDocumentController.imagePaths.removeAt(index);
+                                          // deliveryDocumentController.capturedImageCount.value--;
+                                        },
+                                        icon: const CircleAvatar(
+                                          backgroundColor: Colors.red,
+                                          radius: 30,
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Colors.white,
+                                          ),
+                                        )),
+                                  ),
+                                ],
+                              )),
                         ),
                       ),
                 const SizedBox(
                   height: 50,
                 ),
                 SizedBox(
-                  width: 150,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.054,
                   child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.blue),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(11)),
+                          ))),
                       child: const Text(
                         "Kimlik Tara",
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () async {
-                        await homePageController.getImage();
-                        await homePageController.processImage();
-                        await homePageController.scanFile();
+                        await extractDataController.getImage();
                       }),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Obx(
                   () => Visibility(
-                    visible: homePageController.imagePath.value.isNotEmpty,
+                    visible: extractDataController.imagePaths.isNotEmpty,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
-                        width: 150,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.054,
                         child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateColor.resolveWith(
+                                    (states) => Colors.blue),
+                                shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                    const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(11)),
+                                ))),
                             child: const Text(
                               "Onayla",
                               style: TextStyle(color: Colors.white),
                             ),
                             onPressed: () async {
-                              print(
-                                  "VV:barcodeValue: ${homePageController.barcodeValue}");
-                              print(
-                                  "VV:idSerialNumber: ${homePageController.idSerialNumber.value}");
-                              print(
-                                  "VV:idBirthdate: ${homePageController.idBirthdate.value}");
-                              print(
-                                  "VV:idValidUntil: ${homePageController.idValidUntil.value}");
+                              await extractDataController.processImage();
 
-                              if (homePageController.barcodeValue !=
+                              print(
+                                  "VV:barcodeValue: ${extractDataController.barcodeValue}");
+                              print(
+                                  "VV:idSerialNumber: ${extractDataController.idSerialNumber.value}");
+                              print(
+                                  "VV:idBirthdate: ${extractDataController.idBirthdate.value}");
+                              print(
+                                  "VV:idValidUntil: ${extractDataController.idValidUntil.value}");
+
+                              if (extractDataController.barcodeValue !=
                                       '' || // if back side
-                                  homePageController.idSerialNumber.value ==
+                                  extractDataController.idSerialNumber.value ==
                                       '' ||
-                                  homePageController.idBirthdate.value == '' ||
-                                  homePageController.idValidUntil.value == '') {
+                                  extractDataController.idBirthdate.value ==
+                                      '' ||
+                                  extractDataController.idValidUntil.value ==
+                                      '' ||
+                                  extractDataController.idName.value == '' ||
+                                  extractDataController.idSurname.value == '' ||
+                                  extractDataController.idTCKN == '') {
                                 Get.snackbar(
-                                  'Hata',
-                                  'Kimliğin Arka Yüzü Çekilmiş\nVeya Fotoğraf Net Değil\nLütfen Tekrar Deneyin.',
+                                  'Error',
+                                  "Some data couldn't be retrieved from the ID card photo. Please check photo quality and try again...",
                                   backgroundColor: Colors.red,
                                   colorText: Colors.white,
                                 );
-                              } else if (homePageController.barcodeValue ==
-                                      '' && // if front side
-                                  homePageController.idSerialNumber.value !=
-                                      '' &&
-                                  homePageController.idBirthdate.value != '' &&
-                                  homePageController.idValidUntil.value != '') {
+                              } else {
                                 Get.snackbar(
-                                  'Kimlik Okuma',
-                                  'Kimliğin ön yüzü çekilmiş.\nKimlik Yönü Doğrulandı.',
+                                  'Success',
+                                  'Data successfully extracted from ID card photo.',
                                   backgroundColor: Colors.green,
                                   colorText: Colors.white,
                                 );
