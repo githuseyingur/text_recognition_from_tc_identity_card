@@ -22,14 +22,12 @@ class ExtractDataController extends GetxController {
 
   String barcodeValue = '';
 
-  RegExp dateRegex = RegExp(
-      r'^\d{2}\.\d{2}\.\d{4}$'); // get date from picture and validate with this Regex
+  RegExp dateRegex = RegExp(r'^\d{2}\.\d{2}\.\d{4}$'); // get date from picture and validate with this Regex
 
   Future<void> getImage() async {
     bool isCameraGranted = await Permission.camera.request().isGranted;
     if (!isCameraGranted) {
-      isCameraGranted =
-          await Permission.camera.request() == PermissionStatus.granted;
+      isCameraGranted = await Permission.camera.request() == PermissionStatus.granted;
     }
 
     if (!isCameraGranted) {
@@ -47,10 +45,10 @@ class ExtractDataController extends GetxController {
       bool success = await EdgeDetection.detectEdge(
         imagePath.value,
         canUseGallery: true,
-        androidScanTitle: 'Tara', // use custom localizations for android
-        androidCropTitle: 'Kırp',
-        androidCropBlackWhiteTitle: 'Siyah Beyaz',
-        androidCropReset: 'Sıfırla',
+        androidScanTitle: 'Scan', // use custom localizations for android
+        androidCropTitle: 'Crop',
+        androidCropBlackWhiteTitle: 'Black White',
+        androidCropReset: 'Reset',
       );
 
       if (success) {
@@ -65,10 +63,8 @@ class ExtractDataController extends GetxController {
     final InputImage inputImage;
     if (imagePath.value != null) {
       inputImage = InputImage.fromFilePath(imagePath.value);
-      TextRecognizer textRecognizer =
-          TextRecognizer(script: TextRecognitionScript.latin);
-      final RecognizedText recognizedText =
-          await textRecognizer.processImage(inputImage);
+      TextRecognizer textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+      final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
       String text = recognizedText.text;
       List<String> lines = text.split('\n');
 
@@ -86,12 +82,8 @@ class ExtractDataController extends GetxController {
         if (isSerial) {
           if (line.startsWith('A') && line.length == 9) {
             idSerialNumber.value = line;
-            if (line[3] == '1')
-              idSerialNumber.value =
-                  idSerialNumber.value.replaceRange(3, 4, 'I');
-            if (line[3] == '0')
-              idSerialNumber.value =
-                  idSerialNumber.value.replaceRange(3, 4, 'O');
+            if (line[3] == '1') idSerialNumber.value = idSerialNumber.value.replaceRange(3, 4, 'I');
+            if (line[3] == '0') idSerialNumber.value = idSerialNumber.value.replaceRange(3, 4, 'O');
 
             print("CONTROL: Serial Number $idSerialNumber");
           } else {
@@ -101,9 +93,7 @@ class ExtractDataController extends GetxController {
           isSerial = false;
         }
         if (isBirthDate) {
-          if (double.tryParse(line[0]) != null &&
-              double.tryParse(line[2]) == null &&
-              dateRegex.hasMatch(line)) {
+          if (double.tryParse(line[0]) != null && double.tryParse(line[2]) == null && dateRegex.hasMatch(line)) {
             idBirthdate.value = line;
             print("CONTROL: BIRTH DATE $line");
           } else {
@@ -114,9 +104,7 @@ class ExtractDataController extends GetxController {
           isBirthDate = false;
         }
         if (isValidUntil) {
-          if (double.tryParse(line[0]) != null &&
-              double.tryParse(line[2]) == null &&
-              dateRegex.hasMatch(line)) {
+          if (double.tryParse(line[0]) != null && double.tryParse(line[2]) == null && dateRegex.hasMatch(line)) {
             idValidUntil.value = line;
             print("CONTROL: VALID UNTIL:  $line");
           } else {
@@ -176,10 +164,7 @@ class ExtractDataController extends GetxController {
           counter++;
         }
 
-        if (line.contains("Seri") ||
-            line.contains("Document") ||
-            line.contains("Ser") ||
-            line.contains("Doc")) {
+        if (line.contains("Seri") || line.contains("Document") || line.contains("Ser") || line.contains("Doc")) {
           isSerial = true;
           counter++;
         }

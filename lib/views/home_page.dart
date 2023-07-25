@@ -18,8 +18,7 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  ExtractDataController extractDataController =
-      Get.put(ExtractDataController());
+  ExtractDataController extractDataController = Get.put(ExtractDataController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,8 +44,7 @@ class _HomePageState extends State<HomePage> {
                     : Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Visibility(
-                          visible:
-                              extractDataController.imagePath.value.isNotEmpty,
+                          visible: extractDataController.imagePath.value.isNotEmpty,
                           child: SizedBox(
                               height: 200,
                               child: Stack(
@@ -55,8 +53,7 @@ class _HomePageState extends State<HomePage> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Image.file(
-                                      File(extractDataController
-                                          .imagePaths.last),
+                                      File(extractDataController.imagePaths.last),
                                     ),
                                   ),
                                   Positioned(
@@ -65,18 +62,12 @@ class _HomePageState extends State<HomePage> {
                                     child: IconButton(
                                         onPressed: () {
                                           setState(() {
-                                            extractDataController
-                                                .idBirthdate.value = '';
-                                            extractDataController
-                                                .idSerialNumber.value = '';
-                                            extractDataController
-                                                .idValidUntil.value = '';
-                                            extractDataController
-                                                .imagePath.value = '';
-                                            extractDataController.imagePaths
-                                                .clear();
-                                            extractDataController.barcodeValue =
-                                                '';
+                                            extractDataController.idBirthdate.value = '';
+                                            extractDataController.idSerialNumber.value = '';
+                                            extractDataController.idValidUntil.value = '';
+                                            extractDataController.imagePath.value = '';
+                                            extractDataController.imagePaths.clear();
+                                            extractDataController.barcodeValue = '';
                                           });
                                           // deliveryDocumentController.imagePaths.removeAt(index);
                                           // deliveryDocumentController.capturedImageCount.value--;
@@ -102,15 +93,12 @@ class _HomePageState extends State<HomePage> {
                   height: MediaQuery.of(context).size.height * 0.054,
                   child: ElevatedButton(
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateColor.resolveWith(
-                              (states) => Colors.blue),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  const RoundedRectangleBorder(
+                          backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(11)),
                           ))),
                       child: const Text(
-                        "Kimlik Tara",
+                        "Scan ID Card",
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () async {
@@ -130,38 +118,26 @@ class _HomePageState extends State<HomePage> {
                         height: MediaQuery.of(context).size.height * 0.054,
                         child: ElevatedButton(
                             style: ButtonStyle(
-                                backgroundColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.blue),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(11)),
+                                backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue),
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(11)),
                                 ))),
                             child: const Text(
-                              "Onayla",
+                              "Confirm",
                               style: TextStyle(color: Colors.white),
                             ),
                             onPressed: () async {
                               await extractDataController.processImage();
 
-                              print(
-                                  "VV:barcodeValue: ${extractDataController.barcodeValue}");
-                              print(
-                                  "VV:idSerialNumber: ${extractDataController.idSerialNumber.value}");
-                              print(
-                                  "VV:idBirthdate: ${extractDataController.idBirthdate.value}");
-                              print(
-                                  "VV:idValidUntil: ${extractDataController.idValidUntil.value}");
+                              print("VV:barcodeValue: ${extractDataController.barcodeValue}");
+                              print("VV:idSerialNumber: ${extractDataController.idSerialNumber.value}");
+                              print("VV:idBirthdate: ${extractDataController.idBirthdate.value}");
+                              print("VV:idValidUntil: ${extractDataController.idValidUntil.value}");
 
-                              if (extractDataController.barcodeValue !=
-                                      '' || // if back side
-                                  extractDataController.idSerialNumber.value ==
-                                      '' ||
-                                  extractDataController.idBirthdate.value ==
-                                      '' ||
-                                  extractDataController.idValidUntil.value ==
-                                      '' ||
+                              if (extractDataController.barcodeValue != '' || // if back side
+                                  extractDataController.idSerialNumber.value == '' ||
+                                  extractDataController.idBirthdate.value == '' ||
+                                  extractDataController.idValidUntil.value == '' ||
                                   extractDataController.idName.value == '' ||
                                   extractDataController.idSurname.value == '' ||
                                   extractDataController.idTCKN == '') {
