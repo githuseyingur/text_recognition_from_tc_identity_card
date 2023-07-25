@@ -14,6 +14,17 @@ get: ^4.6.5
 google_mlkit_text_recognition: ^0.8.1
 ```
 
+
+```
+  final InputImage inputImage;
+    if (imagePath.value != null) {
+      inputImage = InputImage.fromFilePath(imagePath.value);
+      TextRecognizer textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+      final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
+      String text = recognizedText.text;
+      List<String> lines = text.split('\n');
+   ```   
+
 ### Screenshots :
 
 <img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/08054602-bd8a-41ee-8730-b38796ced406"  width="280" height ="580">
