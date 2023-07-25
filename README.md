@@ -14,3 +14,7 @@ get: ^4.6.5
 google_mlkit_text_recognition: ^0.8.1
 ```
 
+### Screenshots :
+
+<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/df6f7e03-28d2-4e3d-b5c4-eda20885796b"  width="320">
+
