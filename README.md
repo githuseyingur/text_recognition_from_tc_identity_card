@@ -17,4 +17,7 @@ google_mlkit_text_recognition: ^0.8.1
 ### Screenshots :
 
 <img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/df6f7e03-28d2-4e3d-b5c4-eda20885796b"  width="320">
+<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/d19ea90c-8810-416d-a66f-f6025364b556"  width="320">
+<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/44a3337c-271b-48c1-acc1-b3f00110ac74"  width="320">
+<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/e8560c5b-2108-42f4-be06-2adb0b41364f"  width="320">
 
