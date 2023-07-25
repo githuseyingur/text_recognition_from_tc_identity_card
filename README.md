@@ -15,7 +15,7 @@ google_mlkit_text_recognition: ^0.8.1
 ```
 
 
-```
+```dart
   final InputImage inputImage;
     if (imagePath.value != null) {
       inputImage = InputImage.fromFilePath(imagePath.value);
