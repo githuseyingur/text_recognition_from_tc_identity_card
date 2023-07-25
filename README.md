@@ -14,6 +14,7 @@ get: ^4.6.5
 google_mlkit_text_recognition: ^0.8.1
 ```
 
+#### Get Text From Image:
 
 ```dart
   final InputImage inputImage;
