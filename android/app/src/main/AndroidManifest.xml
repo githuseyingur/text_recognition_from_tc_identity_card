@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.detect_text_from_image">
 
     <application
-        android:label="Text Recog From TC Identity Card"
+        android:label="Text Recognition From TC ID Card"
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
         android:name="${applicationName}"

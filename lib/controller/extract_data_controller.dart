@@ -1,6 +1,6 @@
 // import 'package:barcode_finder/barcode_finder.dart';
 
-import 'package:detect_text_from_image/view/id_detail_view.dart';
+import 'package:detect_text_from_image/view/detail_view.dart';
 import 'package:edge_detection_plus/edge_detection_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -178,26 +178,20 @@ class ExtractDataController extends GetxController {
 
       //! !
       if (isTCKN) {
-        if (true) {
-          idTCKN.value = line;
-          print("CONTROL: TCKN:  $line");
-        }
+        idTCKN.value = line;
+        print("CONTROL: TCKN:  $line");
 
         isTCKN = false;
       }
       if (isName) {
-        if (true) {
-          idName.value = line;
-          print("CONTROL: NAME:  $line");
-        }
+        idName.value = line;
+        print("CONTROL: NAME:  $line");
 
         isName = false;
       }
       if (isSurname) {
-        if (true) {
-          idSurname.value = line;
-          print("CONTROL: SURNAME:  $line");
-        }
+        idSurname.value = line;
+        print("CONTROL: SURNAME:  $line");
 
         isSurname = false;
       }
@@ -257,15 +251,7 @@ class ExtractDataController extends GetxController {
           ),
           duration: const Duration(seconds: 1),
           dismissDirection: DismissDirection.horizontal);
-      Get.to(IdDetailView());
+      Get.to(DetailView());
     }
   }
-
-  // // Find barcode in the picture, if picture contains a barcode, then it is a back side.
-  // Future<String?> scanFile() async {
-  //   // Used to pick a file from device storage
-  //   var response = await BarcodeFinder.scanFile(path: imagePaths[0]);
-  //   barcodeValue = response.toString();
-  //   return response;
-  // }
 }

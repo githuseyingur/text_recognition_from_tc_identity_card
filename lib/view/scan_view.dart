@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class ScanView extends StatefulWidget {
+  const ScanView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<ScanView> createState() => _ScanViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _ScanViewState extends State<ScanView> {
   @override
   void dispose() {
     super.dispose();

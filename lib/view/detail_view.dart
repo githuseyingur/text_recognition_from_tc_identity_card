@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 import '../controller/extract_data_controller.dart';
 
-class IdDetailView extends StatelessWidget {
-  IdDetailView({super.key});
+class DetailView extends StatelessWidget {
+  DetailView({super.key});
   final extractDataController = Get.put(ExtractDataController());
 
   final profileSettingsStyle = const TextStyle(
