@@ -1,6 +1,6 @@
 // import 'package:barcode_finder/barcode_finder.dart';
 
-import 'package:detect_text_from_image/views/id_detail_view.dart';
+import 'package:detect_text_from_image/view/id_detail_view.dart';
 import 'package:edge_detection_plus/edge_detection_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +10,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ExtractDataController extends GetxController {
-  RxBool isSnackbarShown = false.obs;
   RxList<String> imagePaths = <String>[].obs;
   RxString imagePath = "".obs;
   RxInt imageCount = 0.obs;
@@ -269,8 +268,4 @@ class ExtractDataController extends GetxController {
   //   barcodeValue = response.toString();
   //   return response;
   // }
-
-  changeSnackbarValue(bool isShown) {
-    isSnackbarShown.value = isShown;
-  }
 }

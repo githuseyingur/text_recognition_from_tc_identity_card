@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/extract_data_controller.dart';
+import '../controller/extract_data_controller.dart';
 
 class IdDetailView extends StatelessWidget {
   IdDetailView({super.key});

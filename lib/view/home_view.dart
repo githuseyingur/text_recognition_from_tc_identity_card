@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:detect_text_from_image/controllers/extract_data_controller.dart';
+import 'package:detect_text_from_image/controller/extract_data_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
