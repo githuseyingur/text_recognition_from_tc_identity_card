@@ -1,22 +1,23 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/extract_data_controller.dart';
 
-class IdDetailPage extends StatelessWidget {
-  IdDetailPage({super.key});
-  ExtractDataController extractDataController =
-      Get.put(ExtractDataController());
+class IdDetailView extends StatelessWidget {
+  IdDetailView({super.key});
+  final extractDataController = Get.put(ExtractDataController());
 
-  TextStyle profileSettingsStyle = const TextStyle(
+  final profileSettingsStyle = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w300,
     color: Color(0xff979797),
   );
-  TextStyle userInfoStyle = const TextStyle(
+  final userInfoStyle = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.blue,
+    color: Colors.deepPurple,
   );
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,37 @@ class IdDetailPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Visibility(
+              visible: extractDataController.imagePath.value.isNotEmpty,
+              child: Container(
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    width: 3,
+                    color: Colors.black87,
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.file(
+                    File(extractDataController.imagePaths.last),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.06,
               child: Card(
-                color: Colors.blue,
+                color: Colors.deepPurple,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6.0),
                 ),
@@ -190,11 +216,12 @@ class IdDetailPage extends StatelessWidget {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: const CircleBorder(),
-                  elevation: 4,
-                  shadowColor: Colors.blue,
-                  minimumSize: Size.fromRadius(24)),
+                backgroundColor: Colors.deepPurple,
+                shape: const CircleBorder(),
+                elevation: 4,
+                shadowColor: Colors.deepPurple,
+                minimumSize: const Size.fromRadius(24),
+              ),
               onPressed: () {
                 Get.back();
               },

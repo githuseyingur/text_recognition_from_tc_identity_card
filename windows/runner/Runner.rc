@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "detect_fext_from_image" "\0"
+            VALUE "FileDescription", "detect_text_from_image" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "detect_fext_from_image" "\0"
+            VALUE "InternalName", "detect_text_from_image" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "detect_fext_from_image.exe" "\0"
-            VALUE "ProductName", "detect_fext_from_image" "\0"
+            VALUE "OriginalFilename", "detect_text_from_image.exe" "\0"
+            VALUE "ProductName", "detect_text_from_image" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

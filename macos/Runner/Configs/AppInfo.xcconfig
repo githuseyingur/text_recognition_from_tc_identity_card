@@ -5,7 +5,7 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = detect_fext_from_image
+PRODUCT_NAME = detect_text_from_image
 
 // The application's bundle identifier
 PRODUCT_BUNDLE_IDENTIFIER = com.example.detectFextFromImage

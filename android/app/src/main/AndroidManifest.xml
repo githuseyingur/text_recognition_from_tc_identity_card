@@ -1,9 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.detect_fext_from_image">
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-   <application
-        android:label="detect_fext_from_image"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.detect_text_from_image">
+
+    <application
+        android:label="Text Recog From TC Identity Card"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,6 +1,6 @@
 {
-    "name": "detect_fext_from_image",
-    "short_name": "detect_fext_from_image",
+    "name": "detect_text_from_image",
+    "short_name": "detect_text_from_image",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
