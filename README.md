@@ -1,4 +1,4 @@
-# Extract Text From TC Identity Card with Flutter
+# Extract Text From TC Identity Card with Flutter using Google ML Kit Text Recognition
 
 
 ### Packages : 
