@@ -26,7 +26,13 @@ google_mlkit_text_recognition: ^0.11.0
 
 ### Screenshots :
 
-<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/08054602-bd8a-41ee-8730-b38796ced406"  width="280" height ="580">
-<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/57b6d1bb-9d46-43d6-b664-6ffdf56115aa"  width="280" height ="580">
-<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/17953d0c-395b-465c-81b4-acd72ea654d9"  width="280" height ="580">
-<img src="https://github.com/githuseyingur/flutter_text_recog_from_tc_identity_card/assets/120099096/d9565a6f-179a-4f56-95aa-ab49fac8c43f"  width="280" height ="580">
+
+
+<img width="280" height="580" alt="1" src="https://github.com/user-attachments/assets/35c74e92-0ea7-4116-af15-ff76df0c5ed7" />
+<img width="280" height="580" alt="2" src="https://github.com/user-attachments/assets/9a45fc66-8ef1-4bac-93c9-1609a996bd56" />
+<img width="280" height="580" alt="3" src="https://github.com/user-attachments/assets/63593e64-58cc-4679-8ee5-f47d223808aa" />
+<img width="280" height="580" alt="4" src="https://github.com/user-attachments/assets/8f201d88-5d9d-4bb6-bb4c-0452f3753999" />
+<img width="280" height="580" alt="5" src="https://github.com/user-attachments/assets/8982ffdf-8767-4e44-8a9b-45d6e430e3c5" />
+<img width="280" height="580" alt="6" src="https://github.com/user-attachments/assets/25a37213-a4b7-457b-8ffa-c1d037019fde" />
+
+
