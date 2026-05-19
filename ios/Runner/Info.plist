@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Kimlik kartı fotoğrafı seçmek için galeri erişimi gerekiyor.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Detect Fext From Image</string>
 	<key>CFBundleExecutable</key>

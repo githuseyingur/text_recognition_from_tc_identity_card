@@ -34,11 +34,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   google_mlkit_text_recognition: ^0.11.0
-  lottie: ^2.3.2
+
   path: ^1.8.2
   path_provider: ^2.0.14
   permission_handler: ^10.4.3
   edge_detection_plus: ^1.0.2
+  image_picker: ^1.0.7
+  shared_preferences: ^2.2.2
+  share_plus: ^7.2.2
 
 
 dev_dependencies:

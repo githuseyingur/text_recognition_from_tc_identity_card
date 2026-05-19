@@ -1,7 +1,9 @@
+import 'package:detect_text_from_image/bindings/app_binding.dart';
+import 'package:detect_text_from_image/l10n/app_translations.dart';
+import 'package:detect_text_from_image/theme/app_theme.dart';
+import 'package:detect_text_from_image/view/scan_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'view/scan_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +16,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryTextTheme: const TextTheme(
-          titleLarge: TextStyle(color: Colors.white),
-        ),
-      ),
+      title: 'Text Recognition',
+      translations: AppTranslations(),
+      locale: const Locale('tr', 'TR'),
+      fallbackLocale: const Locale('en', 'US'),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
+      initialBinding: AppBinding(),
       home: const ScanView(),
     );
   }

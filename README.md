@@ -8,7 +8,6 @@ permission_handler: ^10.4.3
 path: ^1.8.2
 path_provider: ^2.0.14
 edge_detection_plus: ^1.0.2
-lottie: ^2.3.2             // for UI (optional)
 get: ^4.6.5
 google_mlkit_text_recognition: ^0.11.0
 ```
